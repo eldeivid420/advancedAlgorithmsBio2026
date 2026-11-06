@@ -1,0 +1,65 @@
+{
+  "algorithm": "simulated_annealing",
+  "budget": 5000,
+  "environment": {
+    "machine": "AMD64",
+    "packages": {
+      "numpy": "2.2.5",
+      "scipy": "1.16.3"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.2",
+    "pythonhashseed": null,
+    "threading": {
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "VECLIB_MAXIMUM_THREADS": null
+    }
+  },
+  "instance_sha256": "bd3fd3146948dd8e149e58c50c07c8db6adca9c69a57dca5f8b320cc171cfee7",
+  "params": {
+    "active_fraction": 0.3,
+    "final_temperature": 0.0001,
+    "flip_probability": 0.5,
+    "initial_temperature": 0.15,
+    "nominal_power": 20.0,
+    "power_step": 3.0
+  },
+  "salt": 0,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "source_sha256": "5d1e913831ab6edbf33d251390219eab01e435a2fa341b97ae059d8ab7b2a108",
+  "student_id": "A01748760"
+}

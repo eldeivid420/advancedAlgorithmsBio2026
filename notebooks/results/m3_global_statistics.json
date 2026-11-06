@@ -1,0 +1,230 @@
+{
+  "friedman_stat": 140.13333333333344,
+  "friedman_p": 1.6762088050106937e-28,
+  "friedman_permutation_p": 1e-05,
+  "permutation_resamples": 99999,
+  "kendall_w": 0.934222222222223,
+  "n_significant": 15,
+  "summary": [
+    {
+      "method": "monte_carlo",
+      "median": 0.5515770165919147,
+      "q1": 0.5407216041390643,
+      "q3": 0.5611750869719103,
+      "mean_rank": 5.0,
+      "connected": 30
+    },
+    {
+      "method": "simulated_annealing",
+      "median": 0.7146553510068925,
+      "q1": 0.712220483817064,
+      "q3": 0.7179103868907776,
+      "mean_rank": 1.3666666666666667,
+      "connected": 30
+    },
+    {
+      "method": "tabu_search",
+      "median": 0.6855294969563016,
+      "q1": 0.683646660327871,
+      "q3": 0.6870363827759837,
+      "mean_rank": 2.9,
+      "connected": 30
+    },
+    {
+      "method": "pso",
+      "median": 0.2544043898347109,
+      "q1": 0.2537860897723091,
+      "q3": 0.2546303703550082,
+      "mean_rank": 6.0,
+      "connected": 30
+    },
+    {
+      "method": "aco",
+      "median": 0.6755695055718648,
+      "q1": 0.6737819256280113,
+      "q3": 0.6767237879326786,
+      "mean_rank": 3.9,
+      "connected": 30
+    },
+    {
+      "method": "hybrid",
+      "median": 0.7045444993971947,
+      "q1": 0.7018831950862414,
+      "q3": 0.706495329736549,
+      "mean_rank": 1.8333333333333333,
+      "connected": 30
+    }
+  ],
+  "pairs": [
+    {
+      "first": "monte_carlo",
+      "second": "simulated_annealing",
+      "raw_p": 1.862645149230957e-09,
+      "holm_p": 2.7939677238464355e-08,
+      "median_difference": -0.1630395587585835,
+      "rank_biserial": -1.0,
+      "first_wins": 0,
+      "ties": 0,
+      "second_wins": 30
+    },
+    {
+      "first": "monte_carlo",
+      "second": "tabu_search",
+      "raw_p": 1.862645149230957e-09,
+      "holm_p": 2.7939677238464355e-08,
+      "median_difference": -0.13335060880174188,
+      "rank_biserial": -1.0,
+      "first_wins": 0,
+      "ties": 0,
+      "second_wins": 30
+    },
+    {
+      "first": "monte_carlo",
+      "second": "pso",
+      "raw_p": 1.862645149230957e-09,
+      "holm_p": 2.7939677238464355e-08,
+      "median_difference": 0.29726959973688066,
+      "rank_biserial": 1.0,
+      "first_wins": 30,
+      "ties": 0,
+      "second_wins": 0
+    },
+    {
+      "first": "monte_carlo",
+      "second": "aco",
+      "raw_p": 1.862645149230957e-09,
+      "holm_p": 2.7939677238464355e-08,
+      "median_difference": -0.1245063984654754,
+      "rank_biserial": -1.0,
+      "first_wins": 0,
+      "ties": 0,
+      "second_wins": 30
+    },
+    {
+      "first": "monte_carlo",
+      "second": "hybrid",
+      "raw_p": 1.862645149230957e-09,
+      "holm_p": 2.7939677238464355e-08,
+      "median_difference": -0.15101862078239475,
+      "rank_biserial": -1.0,
+      "first_wins": 0,
+      "ties": 0,
+      "second_wins": 30
+    },
+    {
+      "first": "simulated_annealing",
+      "second": "pso",
+      "raw_p": 1.862645149230957e-09,
+      "holm_p": 2.7939677238464355e-08,
+      "median_difference": 0.46043307692008384,
+      "rank_biserial": 1.0,
+      "first_wins": 30,
+      "ties": 0,
+      "second_wins": 0
+    },
+    {
+      "first": "tabu_search",
+      "second": "pso",
+      "raw_p": 1.862645149230957e-09,
+      "holm_p": 2.7939677238464355e-08,
+      "median_difference": 0.43164131384403137,
+      "rank_biserial": 1.0,
+      "first_wins": 30,
+      "ties": 0,
+      "second_wins": 0
+    },
+    {
+      "first": "tabu_search",
+      "second": "aco",
+      "raw_p": 1.862645149230957e-09,
+      "holm_p": 2.7939677238464355e-08,
+      "median_difference": 0.009756943163724219,
+      "rank_biserial": 1.0,
+      "first_wins": 30,
+      "ties": 0,
+      "second_wins": 0
+    },
+    {
+      "first": "tabu_search",
+      "second": "hybrid",
+      "raw_p": 1.862645149230957e-09,
+      "holm_p": 2.7939677238464355e-08,
+      "median_difference": -0.018622925077471875,
+      "rank_biserial": -1.0,
+      "first_wins": 0,
+      "ties": 0,
+      "second_wins": 30
+    },
+    {
+      "first": "pso",
+      "second": "aco",
+      "raw_p": 1.862645149230957e-09,
+      "holm_p": 2.7939677238464355e-08,
+      "median_difference": -0.42124576612639664,
+      "rank_biserial": -1.0,
+      "first_wins": 0,
+      "ties": 0,
+      "second_wins": 30
+    },
+    {
+      "first": "pso",
+      "second": "hybrid",
+      "raw_p": 1.862645149230957e-09,
+      "holm_p": 2.7939677238464355e-08,
+      "median_difference": -0.4500205828343089,
+      "rank_biserial": -1.0,
+      "first_wins": 0,
+      "ties": 0,
+      "second_wins": 30
+    },
+    {
+      "first": "aco",
+      "second": "hybrid",
+      "raw_p": 1.862645149230957e-09,
+      "holm_p": 2.7939677238464355e-08,
+      "median_difference": -0.02837038130940661,
+      "rank_biserial": -1.0,
+      "first_wins": 0,
+      "ties": 0,
+      "second_wins": 30
+    },
+    {
+      "first": "simulated_annealing",
+      "second": "aco",
+      "raw_p": 2.60770320892334e-08,
+      "holm_p": 7.82310962677002e-08,
+      "median_difference": 0.03987978463743147,
+      "rank_biserial": 0.9741935483870968,
+      "first_wins": 27,
+      "ties": 0,
+      "second_wins": 3
+    },
+    {
+      "first": "simulated_annealing",
+      "second": "tabu_search",
+      "raw_p": 2.0489096641540527e-07,
+      "holm_p": 4.0978193283081055e-07,
+      "median_difference": 0.029722895239866598,
+      "rank_biserial": 0.9397849462365592,
+      "first_wins": 27,
+      "ties": 0,
+      "second_wins": 3
+    },
+    {
+      "first": "simulated_annealing",
+      "second": "hybrid",
+      "raw_p": 0.002560090273618698,
+      "holm_p": 0.002560090273618698,
+      "median_difference": 0.009575101472193759,
+      "rank_biserial": 0.6129032258064516,
+      "first_wins": 25,
+      "ties": 0,
+      "second_wins": 5
+    }
+  ],
+  "new_final_study_calls": 600000,
+  "new_validation_calls": 111,
+  "reused_calls": 300000,
+  "represented_global_study_calls": 900000,
+  "verification": "All 180 logs and checkpoints verified; independent statsmodels Holm matches."
+}
