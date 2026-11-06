@@ -1,0 +1,18 @@
+{
+  "selected_split": 0.4,
+  "accounting": {
+    "development_failed_validation": 277,
+    "checkpoint_validation": 20,
+    "implementation_validation": 387,
+    "m3_grid_40": 150000,
+    "m3_grid_60": 150000,
+    "m3_grid_80": 150000,
+    "final_hybrid": 150000,
+    "aco_bounded": 150000,
+    "aco_unbounded": 150000
+  },
+  "entropy_bounded": 3.3008543907178263,
+  "entropy_unbounded": 2.708050201102519,
+  "distinct_bounded": 10.0,
+  "distinct_unbounded": 1.0
+}
