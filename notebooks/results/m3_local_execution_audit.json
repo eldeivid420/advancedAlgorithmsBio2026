@@ -1,0 +1,31 @@
+{
+  "commit": "1af57e7",
+  "code_cells": 72,
+  "error_outputs": 0,
+  "environment": {
+    "python": "3.13.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "packages": {
+      "numpy": "2.5.4",
+      "scipy": "1.18.1"
+    },
+    "threading": {
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null,
+      "VECLIB_MAXIMUM_THREADS": null
+    },
+    "pythonhashseed": null
+  },
+  "m3_runs_checked": 300,
+  "m3_represented_evaluations": 1500000,
+  "changed_trajectories_vs_previous": 0,
+  "max_absolute_drift": 0.0,
+  "split": 0.4,
+  "sa_wins": 25,
+  "hybrid_wins": 5,
+  "sa_minus_hybrid_median": 0.009575101472193759,
+  "holm_matches": true
+}
