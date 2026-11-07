@@ -1,70 +1,117 @@
-# Guía para la defensa individual — David Rodríguez Fragoso, A01748760
+# Defensa individual — Q11 y Q23
 
-Duración máxima: cinco minutos. Esta guía prepara la explicación; al grabar debes responder las dos preguntas que se elijan del banco oficial. No se ha localizado ese banco en el repositorio. Las preguntas de práctica de abajo no lo sustituyen.
+**David Rodríguez Fragoso · A01748760 · TC6035**
 
-## Recorrido sugerido: 4 minutos y 55 segundos
+La hoja oficial `video-assignments.pdf`, fechada el 27 de octubre de 2026, asigna a A01748760 **Q11 y Q23** (tabla de la página 2). Debes decir ambos números al inicio, responder solo esas dos preguntas, usar tus propias figuras/resultados y durar como máximo cinco minutos. La asignación ya está hecha: el documento dice que no hay nada que ejecutar para elegir preguntas. Esta guía sustituye el recorrido general anterior.
 
-| Tiempo | Mostrar | Qué explicar |
+## Recorrido sugerido — 4:55
+
+| Tiempo | Contenido | Mostrar |
 |---|---|---|
-| 0:00–0:20 | Identification y mapa de la instancia | Tu nombre, matrícula y el problema que resolviste. |
-| 0:20–1:00 | Formulation y esquema del híbrido | Sensores y potencias acoplados; objetivo maximizado; presupuesto único de 5,000 llamadas. |
-| 1:00–1:40 | Comparación global ampliada y tabla | SA y el híbrido; diferencia emparejada, evidencia estadística y alcance. |
-| 1:40–2:10 | Una gráfica del mecanismo y el grid | ACO con/sin límites, o reparto 40/60, según lo que ayude a la explicación. |
-| 2:10–3:25 | Evidencia pertinente del notebook | Primera pregunta elegida al grabar. |
-| 3:25–4:40 | Evidencia pertinente del notebook | Segunda pregunta elegida al grabar. |
-| 4:40–4:55 | Analysis y cierre | Tu contribución, limitación principal y experimento que podría cambiar la conclusión. |
+| 0:00–0:15 | Nombre, matrícula y «respondo Q11 y Q23». | Identification. |
+| 0:15–2:20 | Q11: predicción primero y justificación teórica después. | M2: Deterministic coefficient stability, fórmula y coeficientes. |
+| 2:20–4:40 | Q23: ranking observado, experimento de transferencia y resultado que cambiaría su alcance. | M3: tabla global, curva ampliada y diferencias SA−híbrido. |
+| 4:40–4:55 | Cierre: alcance de la evidencia y siguiente comprobación. | Analysis o tabla global. |
 
-Los tiempos son una referencia para practicar, no una regla adicional del curso. Las respuestas a las preguntas oficiales tienen prioridad; abre antes las secciones que necesitarás mostrar para no perder tiempo navegando.
+Practica el recorrido con cronómetro. Los tiempos son una ayuda de preparación, no un requisito adicional del curso.
 
-## Base de explicación para adaptar con tus palabras
+## Q11 — Subir la inercia de PSO a 0.95
 
-**Presentación y problema.** «Soy David Rodríguez Fragoso, A01748760. Estudié la ubicación de sensores de mi instancia: hay 80 sitios candidatos y debemos decidir cuáles activar y qué potencia asignarles. Maximizo cobertura ponderada, descontando energía, interferencia y penalizaciones por desconexión.»
+**Pregunta oficial:** “What happens to your PSO if you raise w to 0.95? Predict it first, then justify the prediction from theory rather than from having tried it.”
 
-**Acoplamiento y diseño.** «Las dos capas interactúan: modificar potencia cambia cobertura y conectividad, así que puede cambiar qué selección conviene. Combinamos ACO para elegir sitios con PSO ring para ajustar potencias. Ambas etapas comparten las mismas 5,000 evaluaciones. El grid comparó 40/60, 60/40 y 80/20 con 30 semillas de ajuste y eligió 40/60 por su mediana. Eso significa 2,000 llamadas para selección y 3,000 para ajuste.»
+### Predicción que debe ir primero
 
-**Resultado principal.** «En las 30 semillas finales, SA obtuvo mediana 0.714655 y el híbrido 0.704544. SA ganó 25 semillas y perdió cinco. La mediana de las diferencias emparejadas fue +0.009575 a favor de SA y el p ajustado por Holm fue 0.00256. Esto respalda la ventaja de esa configuración de SA en esta instancia, no que siempre sea mejor.»
+«Predigo que el movimiento conservaría más de su velocidad anterior y que las oscilaciones se amortiguarían más lentamente. Con nuestros coeficientes seguiría dentro de la región estable del modelo determinista. No puedo asegurar que mejore el objetivo final: eso requeriría otro experimento, que no estoy usando para justificar esta predicción.»
 
-**Mecanismo.** «SA puede seguir proponiendo cambios en cualquiera de las dos capas durante la corrida; cada movimiento cambia una de ellas. En el híbrido secuencial, PSO queda condicionado al subconjunto que recibió y no puede sustituir sitios. Esa restricción es una explicación posible del resultado, pero la comparación no la aísla de todas las demás diferencias entre métodos.»
+### Justificación con tu configuración
 
-**Otra evidencia útil.** «Sin límites de feromona, la mediana final de subconjuntos distintos por iteración cayó a uno; con límites permaneció en diez. El piso de feromona conservó alternativas en esta configuración. La entropía no tiene que llegar a cero cuando todas las hormigas construyen el mismo conjunto, porque sus miembros aún pueden elegirse en distinto orden.»
+Los coeficientes son **w = 0.7, c1 = c2 = 1.4**, de modo que **phi = c1+c2 = 2.8**. La región estudiada en M2 exige:
 
-**Contribución y límites.** «Participé en la interpretación y revisión de resultados, propuse discutir eficiencia del presupuesto y probar una colonia mayor, revisé el reparto entre etapas y ejecuté el notebook completo en mi venv. La asistencia de IA y sus correcciones están documentadas. No conocemos el óptimo ni demostramos transferencia a otras instancias; un seguimiento con configuraciones congeladas, semillas nuevas y otra instancia podría cambiar la conclusión.»
+\[
+0\le w<1,\qquad 0<\varphi<2(1+w).
+\]
 
-No leas todos estos bloques si impiden responder las preguntas oficiales dentro de los cinco minutos. Úsalos como material para ensayar respuestas breves.
+| Caso | Inercia w | phi | Cota 2(1+w) | Dentro de la región del modelo |
+|---|---:|---:|---:|---|
+| Configuración utilizada | 0.70 | 2.8 | 3.4 | Sí |
+| Cambio hipotético de Q11 | 0.95 | 2.8 | 3.9 | Sí |
 
-## Cifras que debes distinguir
+En el término de inercia, **0.7 v** pasaría a **0.95 v** antes de sumar las atracciones y aplicar límites. Esto retiene más movimiento previo; c1 y c2 no cambian.
 
-| Dato | Interpretación correcta |
-|---|---|
-| 30 semillas finales por método | Corridas comparadas; no 30 sensores. |
-| 15 sitios por solución ACO | Cardinalidad fija de la construcción, no número de hormigas. |
-| 10 hormigas | Diez construcciones por iteración ACO completa. |
-| 5,000 evaluaciones finales | Presupuesto por corrida de cada configuración, incluido todo el híbrido. |
-| 450,000 evaluaciones del grid | Costo adicional de elegir reparto: 3 × 30 × 5,000. |
-| 40/60 frente a 60/40 | Mayor mediana del primero, menor IQR del segundo; diferencia estadística no clara. |
-| 25/30 victorias SA | Resultado por semillas; no una probabilidad universal de ganar. |
-| +0.009575 | Mediana de 30 diferencias SA−híbrido; no diferencia de las medianas publicadas. |
-| p Holm = 0.00256 | Evidencia de diferencia según la prueba; no probabilidad de que SA sea mejor. |
-| Efecto rank-biserial = +0.612903 | Balance de rangos firmados favorable a SA; no mejora porcentual. |
-| PSO individual = 0.254404 | Potencias sobre un subconjunto fijo sin optimizar; distinto de PSO sobre subconjuntos tabú. |
+La recurrencia de desplazamiento respecto a una referencia fija que ya explicaste en M2 es:
 
-## Preguntas de práctica — no son el banco oficial
+\[
+x_{k+1}=(1+w-\varphi)x_k-wx_{k-1}.
+\]
 
-1. **¿Por qué un híbrido puede perder frente a SA?** Complementariedad no garantiza ventaja. Las etapas compiten por presupuesto y la segunda no revisa la selección de la primera; además cambian otros mecanismos. La evidencia favorece a SA bajo las condiciones probadas.
-2. **¿Cómo evitaste duplicar el presupuesto?** Un solo evaluador, `problem.limited()` para la etapa ACO y el remanente para PSO. La reevaluación de la solución recibida se cobra dentro de PSO.
-3. **¿Por qué no seleccionaste 60/40 si tuvo menor dispersión?** La regla previa era la mayor mediana. Se conservó después de ver los datos, y se reconoció que la diferencia entre ambos repartos quedó sin resolver estadísticamente.
-4. **¿Qué aportan Friedman, Wilcoxon y Holm?** Friedman examina diferencias globales de rangos; Wilcoxon usa las diferencias de cada pareja de métodos sobre las mismas semillas; Holm controla el riesgo de falsos positivos de la familia de 15 comparaciones. Reportamos también tamaños de efecto.
-5. **¿Un p no significativo demuestra empate?** No: indica evidencia insuficiente contra el modelo de la prueba. No prueba equivalencia ni un óptimo compartido.
-6. **¿Por qué la dispersión pequeña de PSO no demostró estancamiento?** Los registros conservaron mejoras tardías. La diversidad y el incremento del objetivo describen aspectos diferentes; necesitamos mirar ambos.
-7. **¿Por qué importa el piso de feromona?** Evita que la evaporación reduzca indefinidamente el peso de sitios poco reforzados. Los diagnósticos muestran que aquí conservó diversidad de construcción. El tope superior no fue vinculante bajo la actualización utilizada.
-8. **¿Qué dice No Free Lunch aquí?** Su resultado requiere los supuestos de promediar sobre todas las funciones objetivo; no promete que mezclar métodos ayude. Nuestra evidencia se limita a esta instancia estructurada y estas configuraciones.
-9. **¿Cómo refutarías la conclusión principal?** Congelar SA y el híbrido, predefinir una ventaja práctica y comparar nuevas semillas e instancias con el mismo presupuesto. Una reversión o ausencia de ventaja relevante exigiría limitar la conclusión.
-10. **¿Qué error de IA quedó documentado?** Una prueba esperaba rechazar split=0.999 con presupuesto 10, aunque asigna 9 llamadas a ACO y una a PSO: ambas etapas son válidas. Se corrigió la expectativa. También se documentaron errores de formato y revisiones solicitadas por el estudiante; explica la evidencia sin atribuirte verificaciones que no hiciste.
+Que el desplazamiento tienda a cero significa acercarse a la referencia, no apagar los sensores ni llevar sus potencias a cero.
 
-## Grabación y entrega
+### Apoyo teórico opcional para una explicación más precisa
 
-- Sigue el procedimiento del curso para elegir las dos preguntas al grabar. No sustituyas ese sorteo por las preguntas de práctica.
-- Muestra tu instancia y tus salidas reales. Puedes dejar abiertas la tabla global, la gráfica ampliada y la figura de límites.
-- Comprueba la duración total y que se entiendan audio, números y etiquetas.
-- Sube el video donde indique el curso, verifica que el enlace pueda abrirlo el evaluador y añádelo en `# Video` del notebook.
-- La entrega solicitada es el notebook. Esta guía y los registros son material de preparación/local; no forman parte del archivo que debes adjuntar salvo indicación expresa del profesor.
+La ecuación característica es **lambda² − (1+w−phi)lambda + w = 0**. En estos dos casos sus raíces son complejas conjugadas y el producto de ambas es w. Por eso el módulo de cada una es **sqrt(w)**:
+
+- Con w=0.7, el módulo es aproximadamente **0.83666**.
+- Con w=0.95, es aproximadamente **0.97468**.
+
+Ambos módulos son menores que uno: el modelo sigue amortiguando. El segundo está más cerca de uno, por lo que decae más lentamente. Esta conclusión sale del análisis de la recurrencia, no de haber corrido PSO con w=0.95. No hace falta leer las raíces complejas completas en el video.
+
+### Guion breve para adaptar
+
+«Mi PSO usa inercia 0.7 y coeficientes cognitivo y social de 1.4. Primero mi predicción: subir la inercia a 0.95 mantendría más movimiento previo y amortiguaría las oscilaciones más lentamente. No predigo divergencia obligatoria ni una mejor solución final.
+
+La condición estudiada exige w menor que uno y que la suma de los coeficientes sea menor que dos por uno más w. Nuestra suma es 2.8. Con w=0.95, la cota sube a 3.9 y 0.95 sigue siendo menor que uno: permanece dentro de esa región.
+
+Sin embargo, estar dentro de la región no significa amortiguar igual de rápido. En nuestra recurrencia de desplazamiento, el módulo de las raíces pasa de aproximadamente 0.837 a 0.975. Al acercarse a uno, el movimiento decae más lentamente.
+
+Esto corresponde a una referencia fija en un modelo determinista. El PSO real cambia sus memorias, incorpora factores aleatorios y limita velocidad y potencias. Por eso esta teoría no garantiza convergencia del optimizador real, optimalidad ni una ganancia de desempeño. No ejecuté la variante 0.95 para justificar la respuesta.»
+
+## Q23 — Comprobar si el ranking se transfiere
+
+**Pregunta oficial:** “Your ranking rests on the problem you ran it on. Name the experiment that would test whether it transfers, and say what result would change your conclusion.”
+
+### Evidencia que sí tienes
+
+En la instancia A01748760, el orden de medianas fue **SA > híbrido > tabú > ACO > Monte Carlo > PSO sobre subconjunto fijo**. El ranking no describe todos los posibles parámetros ni subconjuntos de PSO.
+
+- SA: mediana **0.714655**.
+- Híbrido: mediana **0.704544**.
+- SA ganó **25/30** semillas; el híbrido ganó cinco.
+- Mediana emparejada SA−híbrido: **+0.009575**.
+- Wilcoxon con Holm para esa pareja: **p=0.00256**; efecto rank-biserial **+0.612903**.
+
+Estos números respaldan la comparación en esa instancia y condiciones, no la transferencia a otras.
+
+### Experimento propuesto, todavía no ejecutado
+
+1. Elegir antes de correr varias instancias nuevas de la misma familia, con geometría, demanda y límites de potencia diferentes. No elegirlas por favorecer el ranking actual.
+2. Congelar las seis configuraciones: misma política de inicialización de cada método, PSO ring y reparto 40/60 del híbrido. La regla de subconjunto fijo de PSO también se conserva; no se selecciona un subconjunto mejor después de ver resultados.
+3. Usar 30 semillas de evaluación nuevas, pareadas entre los métodos, y 5,000 llamadas por método y corrida, con todo el híbrido dentro de ese total.
+4. Comparar dentro de cada instancia medianas, IQR, rangos y diferencias emparejadas, con pruebas y tamaños de efecto. Definir previamente la familia de contrastes y la corrección por comparaciones múltiples.
+5. Examinar si el orden se sostiene entre instancias. No tratar todas las semillas de distintos problemas como si fueran observaciones intercambiables de una sola instancia. Una evaluación del ranking entre problemas debe usar la instancia como unidad de comparación.
+
+Si decidieras reajustar parámetros para cada instancia, sería otro experimento: tendría que separar semillas de ajuste y evaluación y cobrar ese costo. No sería una transferencia directa de las configuraciones congeladas.
+
+### Qué resultado cambiaría el alcance de la conclusión
+
+Una **reversión consistente de SA frente al híbrido en nuevas instancias**, con diferencias emparejadas favorables al híbrido y evidencia estadística, impediría extender la ventaja observada de SA a esa familia. La conclusión pasaría a depender de propiedades de las instancias. Un cambio de otras posiciones también cuestionaría la transferencia del ranking completo.
+
+Un resultado no significativo exigiría prudencia y quizá más evidencia: no demostraría equivalencia. Tampoco borraría lo medido en A01748760; lo que se pondría a prueba es la extensión de ese resultado a otros problemas.
+
+### Guion breve para adaptar
+
+«Mi ranking proviene de una sola instancia. SA obtuvo mediana 0.714655 y el híbrido 0.704544. SA ganó 25 de las 30 semillas y la comparación emparejada siguió siendo significativa después de Holm. Esto apoya la ventaja observada en esta instancia, pero aún no demuestra transferencia.
+
+Para comprobarla elegiría varias instancias nuevas de la misma familia antes de ver sus resultados. Mantendría congelados los parámetros de los seis métodos, incluido el reparto 40/60, y ejecutaría 30 semillas nuevas y compartidas entre métodos, con 5,000 evaluaciones por corrida. Así examinaría la transferencia de nuestras configuraciones, en vez de volver a ajustarlas para cada problema.
+
+Compararía los resultados dentro de cada instancia y después la estabilidad de los rangos entre instancias. Mostraría dispersión, diferencias emparejadas y tamaños de efecto, además de las pruebas con corrección por comparaciones múltiples.
+
+Cambiaría el alcance de mi conclusión si el híbrido superara consistentemente a SA en otras instancias con evidencia emparejada. Eso no eliminaría la ventaja medida de SA aquí, pero mostraría que depende del problema. Si no hubiera una diferencia clara, tampoco afirmaría empate. No Free Lunch refuerza el límite de una afirmación universal bajo sus supuestos, pero son estos nuevos experimentos los que comprobarían la transferencia en nuestra familia de problemas.»
+
+## Antes de grabar
+
+- Di **Q11 y Q23** al inicio; no hace falta sortear ni escoger otras preguntas.
+- No ejecutes PSO con w=0.95 para construir la justificación: Q11 exige la predicción teórica.
+- Abre M2 en la fórmula de estabilidad y M3 en la tabla/gráfica global. Mantén visibles tus propios resultados.
+- Habla con tus palabras; las fórmulas y cifras respaldan la explicación, no deben convertirse en una lectura apresurada.
+- Graba menos de cinco minutos, revisa audio y legibilidad y publica el enlace con acceso para el profesor.
+- Pega el enlace real en `# Video`. Añadirlo no requiere repetir los experimentos.

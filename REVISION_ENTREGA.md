@@ -20,10 +20,10 @@ Basada en `assignment-spec.pdf`, especialmente secciones 5–10 y rúbrica. Revi
 | Figura de estado interno y explicación | Cumple | Feromonas/diversidad ACO, dispersión PSO y mecanismo tabú. |
 | Conclusiones limitadas y experimento falsador | Cumple | SA frente a este híbrido en una instancia; nuevas semillas/instancias podrían cambiar la conclusión. |
 | Error concreto de IA y verificación | Cumple | Ejemplos de formato, repetición editorial y expectativa incorrecta en la prueba del reparto; evidencia y correcciones en Ledger. |
-| Identificación exacta de herramienta/modelo | Parcial | ChatGPT/Codex declarados. Identificadores exactos de sesiones anteriores no recuperados; no se inventan. Añadirlos solo si se pueden verificar. |
+| Identificación de herramienta/modelo | Actual identificado; anteriores limitados | GPT-6.1 Sol para el chat actual, según la interfaz reportada por el estudiante. No se atribuye ese identificador a sesiones anteriores no verificadas. |
 | Notebook ejecutado completo y salidas coherentes | Cumple | 72 celdas de código ejecutadas en orden, sin errores; código/salidas preservados en esta revisión. |
 | Tamaño menor de 20 MB | Cumple | Aproximadamente 2.82 MB antes de la revisión; comprobar tamaño final al guardar el enlace. |
-| Video individual, hasta cinco minutos | Pendiente | Grabar mostrando instancia/resultados y respondiendo dos preguntas elegidas al grabar del banco oficial. |
+| Video individual, hasta cinco minutos | Pendiente | Grabar mostrando instancia/resultados y responder Q11 y Q23, ya asignadas a A01748760 por la hoja oficial. |
 | Enlace del video dentro de `# Video` | Pendiente | Añadir URL real y comprobar acceso del evaluador. |
 | Un único notebook como entrega | Preparado | `tc6035-A01748760.ipynb`. Los logs y esta guía se conservan fuera de la entrega, salvo instrucción del profesor. |
 
@@ -36,9 +36,12 @@ La ejecución local verificada usa Python 3.13.2, NumPy 2.5.4 y SciPy 1.18.1; la
 ## Antes de enviar
 
 1. Revisar el texto final y practicar con `GUIA_VIDEO.md`.
-2. Obtener el banco oficial y seguir su procedimiento de elección al grabar.
+2. Preparar Q11 y Q23 según video-assignments.pdf; decir ambos números al inicio. La asignación ya está hecha y no requiere sorteo adicional.
 3. Grabar, comprobar duración/audio y acceso al video, y colocar su enlace en `# Video`.
 4. Guardar el notebook conservando las salidas verificadas. Añadir el enlace no requiere repetir experimentos.
 5. Entregar únicamente el `.ipynb` solicitado. Mantener `results/`, figuras y respaldos para reproducibilidad fuera del adjunto de entrega.
 
 El PDF consultado consigna 26 de octubre de 2026 como fecha original. Como esta revisión es posterior, cualquier prórroga o instrucción vigente debe confirmarse en Canvas; no se deduce una fecha nueva del repositorio.
+
+
+La hoja específica de asignación de preguntas del 27 de octubre de 2026 fue aportada después de la revisión inicial. Su fila para A01748760 asigna Q11 y Q23 y actualiza la preparación general anterior. La guía ya está enfocada exclusivamente en esas dos preguntas.
